@@ -5,4 +5,4 @@
     remote_user: root
     ansible_user: root
   roles:
-    - test
+    - nagios-config
