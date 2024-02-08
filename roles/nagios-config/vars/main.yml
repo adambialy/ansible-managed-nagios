@@ -1,0 +1,67 @@
+---
+linux_hosts:
+  - name: test-linux-01
+    alias: test01
+    templ: linux-host
+    ip: 10.1.1.1
+    services: 
+      - check_cmd: check_dummy
+        check_cmd_vars: 
+        service_descr: test01
+        service_templ: generic-service 
+  - name: test-linux-02
+    alias: test02
+    templ: linux-host
+    ip: 10.1.1.2
+    services: 
+      - check_cmd: check_dummy
+        check_cmd_vars: 1!Password
+        service_descr: check_dummy
+        service_templ: generic-service 
+      - check_cmd: test_check02
+        check_cmd_vars: 423!423
+        service_descr: test check 02
+        service_templ: generic-service 
+  - name: test-linux-03
+    alias: test03
+    templ: linux-host
+    ip: 10.1.1.3
+    services: 
+      - check_cmd: check03_e_ee
+        check_cmd_vars: 423!3423
+        service_descr: check03
+        service_templ: generic-service 
+      - check_cmd: test_check33
+        check_cmd_vars: 3!3
+        service_descr: test check 03
+        service_templ: generic-service 
+
+hardware_srv:
+  - name: test-04
+    alias: test04
+    templ: hw-host
+    ip: 10.1.1.4
+    services: 
+      - check_cmd: check_hw
+        check_cmd_vars: 2222
+        service_descr: hw 04
+        service_templ: generic-service 
+
+  - name: test-05
+    alias: test05
+    templ: linux-host
+    ip: 10.1.1.5
+    services:
+      - check_cmd: checkmk
+        check_cmd_vars: 3!2
+        service_descr: just a description
+        service_templ: generic-service 
+      - check_cmd: test_check05
+        check_cmd_vars: 423!3
+        service_descr: descr with spaces
+        service_templ: generic-service 
+      - check_cmd: another_test
+        check_cmd_vars: 423!3
+        service_descr: another_one_bites_the_dust
+        service_templ: generic-service 
+

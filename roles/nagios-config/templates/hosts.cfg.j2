@@ -1,0 +1,20 @@
+
+
+{% for host in n_hosts %}
+
+define host{
+	use                    	{{ host.templ }}
+        host_name               {{ host.name }}
+        alias                   {{ host.alias }}
+        address                 {{ host.ip }}
+        }
+
+define service{
+        use                             generic-service
+        host_name                       {{ host.name }}
+        service_description             PING
+	check_command			check_ping!100.0,20%!500.0,60%
+        }
+
+{% endfor %}
+

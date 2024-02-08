@@ -1,0 +1,12 @@
+---
+all:
+  hosts:
+  children:
+    rpi:
+      hosts:
+        rpi-office:
+          ansible_host: 192.168.1.2
+          ansible_user: root
+          ansible_port: 22
+          ansible_ssh_private_key_file: /home/adam/.ssh/id_ed25519
+          private_key: /home/adam/.ssh/id_ed25519

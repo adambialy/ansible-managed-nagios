@@ -1,0 +1,14 @@
+
+
+{% for service in n_hosts | subelements('services')  %}
+
+define service{
+        use                             {{ service.1.service_templ }}
+#generic-service
+        host_name                       {{ service.0.name }}
+        service_description             {{ service.1.service_descr }}
+	check_command			{{ service.1.check_cmd }}!{{ service.1.check_cmd_vars }}
+}
+	}        
+
+{% endfor %}

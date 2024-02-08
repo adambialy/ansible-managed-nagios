@@ -1,0 +1,8 @@
+- hosts:
+    rpi-office 
+  gather_facts: false
+  vars:
+    remote_user: root
+    ansible_user: root
+  roles:
+    - test

@@ -1,0 +1,14 @@
+---
+
+- name: "set fact for hardware servers"
+  set_fact:
+    n_hosts: "{{ hardware_srv }}"
+    group: hardware_srv
+- include: "{{ role_path }}/tasks/h.yml"
+
+
+- name: "set fact for group linux_hosts"
+  set_fact:
+    n_hosts: "{{ linux_hosts }}"
+    group: linux_hosts
+- include: "{{ role_path }}/tasks/h.yml"

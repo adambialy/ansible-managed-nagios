@@ -1,0 +1,12 @@
+
+define hostgroup{
+        hostgroup_name  {{ group }}
+        alias           {{ group }}
+	members {% for host in n_hosts %}
+{{ host.name }}{% if not loop.last %},{% endif %}
+{% endfor %}   
+        }
+
+
+
+

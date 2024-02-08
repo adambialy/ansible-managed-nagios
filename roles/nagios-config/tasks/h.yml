@@ -1,0 +1,21 @@
+---
+
+- name: "populate group"
+  template:
+    src: "{{ role_path }}/templates/group.cfg.j2"
+    dest: "/tmp/{{ group }}-groups.cfg" 
+  loop: 
+    - "{{ n_hosts }}"
+
+- name: "populate hosts definitions"
+  template:
+    src: "{{ role_path }}/templates/hosts.cfg.j2"
+    dest: "/tmp/{{ group }}-hosts.cfg" 
+  loop: "{{ n_hosts }}"
+
+- name: "populate services definitions"
+  template:
+    src: "{{ role_path }}/templates/services.cfg.j2"
+    dest: "/tmp/{{ group }}-services.cfg" 
+  loop: "{{ n_hosts | subelements('services') }}"
+
